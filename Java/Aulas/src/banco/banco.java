@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class banco
 {
+	
 
 	public static void main(String[] args) 
 	{
@@ -53,6 +54,8 @@ public class banco
 			
 		}
 		while (opcaoContinuar == 'S');
+		
+		leia.close();
 				
 	}
 	
@@ -105,6 +108,8 @@ public class banco
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
+		
+		leia.close();
 	}	
 	
 	static void contaCorrente(String conta, double saldo, int limiteOperacoes, int tamanhoLinha)
@@ -156,6 +161,9 @@ public class banco
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
+		
+		
+		leia.close();
 	}	
 	
 	static void contaEspecial (String conta, double saldo, int limiteOperacoes, int tamanhoLinha)
@@ -207,6 +215,8 @@ public class banco
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
+		
+		leia.close();
 	}	
 	
 	static void contaEmpresa (String conta, double saldo, int limiteOperacoes, int tamanhoLinha)
@@ -258,6 +268,8 @@ public class banco
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
+		
+		leia.close();
 	}	
 	
 	static void contaUniversitaria (String conta, double saldo, int limiteOperacoes, int tamanhoLinha)
@@ -309,6 +321,9 @@ public class banco
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
+		
+		
+		leia.close();
 	}	
 		
 	static void desenhaLinha (int linha)

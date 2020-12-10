@@ -40,6 +40,10 @@ public class exemplos {
 
 			}
 		} while (opcao == 'S');
+		
+		
+		
+		leia.close();
 
 		System.out.println("FIM DO PROGRAMA");
 

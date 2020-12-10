@@ -49,8 +49,9 @@ public class teste
 			}
 				
 		}
-		
+		leia.close();
 	}
+	
 	public static void linha()
 	{
 	for (int i =0;i<TAMANHO;i++)

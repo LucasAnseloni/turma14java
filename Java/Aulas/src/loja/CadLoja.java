@@ -48,6 +48,8 @@ public class CadLoja {
 			System.out.println("\nVoce gostaria de continuar [1] sim , [2] não");
 			opcao = leia.next().charAt(0);
 		} while (opcao == '1');
+		
+		leia.close();
 
 	}
 
