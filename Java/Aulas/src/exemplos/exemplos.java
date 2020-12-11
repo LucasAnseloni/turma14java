@@ -28,21 +28,16 @@ public class exemplos {
 			System.out.println();
 			System.out.println("Continuar S/N: ");
 			opcao = leia.next().toUpperCase().charAt(0);
-			while (true)
 
-			{
-				if (opcao != 'S' && opcao != 'N') {
-					System.out.println("Por favor digite S ou N tá bom. Tente de novo: ");
-					opcao = leia.next().toUpperCase().charAt(0);
-				} else {
-					break;
-				}
-
+			if (opcao != 'S' && opcao != 'N') {
+				System.out.println("Por favor digite S ou N tá bom. Tente de novo: ");
+				opcao = leia.next().toUpperCase().charAt(0);
+			} else {
+				
 			}
+
 		} while (opcao == 'S');
-		
-		
-		
+
 		leia.close();
 
 		System.out.println("FIM DO PROGRAMA");
