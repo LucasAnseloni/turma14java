@@ -11,9 +11,8 @@ public class banco
 		Scanner leia = new Scanner (System.in);
 		char opcaoMenuInicial, opcaoContinuar='S';
 		int tamanhoLinha=80, numeroOperacoes=3;
-		String numeroConta="01";
+		String numeroConta="00001";
 		double saldoConta=0.00;
-		
 		do
 		{		
 			desenhaLinha(tamanhoLinha);
@@ -26,7 +25,6 @@ public class banco
 			System.out.print("\nDigite a opção desejada: ");
 			opcaoMenuInicial = leia.next().charAt(0);
 			desenhaLinha(tamanhoLinha);
-			
 			if (opcaoMenuInicial == '1')
 			{
 				contaPoupanca(numeroConta, saldoConta, numeroOperacoes, tamanhoLinha);
@@ -50,15 +48,11 @@ public class banco
 			else if (opcaoMenuInicial == '6')
 			{
 				System.out.println("\nObrigado por utilizar o G7 Bank.");
+				break;
 			}
-			
 		}
 		while (opcaoContinuar == 'S');
-		
-		leia.close();
-				
 	}
-	
 	static void contaPoupanca (String conta, double saldo, int limiteOperacoes, int tamanhoLinha) //Respeita A Ordem Das Variaveis Enviadas quando a função foi chamada
 	{
 		Scanner leia = new Scanner (System.in);
@@ -66,10 +60,8 @@ public class banco
 		System.out.printf("\nNúmero da conta: %s",conta);
 		System.out.printf("\nSalto Atual: R$%.2f\n",saldo);
 		desenhaLinha(tamanhoLinha);
-		
 		char operacao, opcaoContinuar;
 		double saldoAtual=saldo, valorOperacao;
-		
 		do
 		{
 			for (int i = 1; i <= limiteOperacoes; i++)
@@ -78,7 +70,6 @@ public class banco
 				operacao = leia.next().toUpperCase().charAt(0);
 				System.out.printf("Informe o valor da transação: R$");
 				valorOperacao = leia.nextDouble();
-							
 				if (operacao == 'C')
 				{
 					System.out.print("\nTransação realizada com sucesso.");	
@@ -102,16 +93,12 @@ public class banco
 						desenhaLinha(tamanhoLinha);
 					}
 				}
-				
 			}
 			System.out.print("\nDeseja realizar mais transações S/N? ");
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
-		
-		leia.close();
 	}	
-	
 	static void contaCorrente(String conta, double saldo, int limiteOperacoes, int tamanhoLinha)
 	{
 		Scanner leia = new Scanner (System.in);
@@ -119,10 +106,8 @@ public class banco
 		System.out.printf("\nNúmero da conta: %s",conta);
 		System.out.printf("\nSalto Atual: R$%.2f\n",saldo);
 		desenhaLinha(tamanhoLinha);
-		
 		char operacao, opcaoContinuar;
 		double saldoAtual=saldo, valorOperacao;
-		
 		do
 		{
 			for (int i = 1; i <= limiteOperacoes; i++)
@@ -131,7 +116,6 @@ public class banco
 				operacao = leia.next().toUpperCase().charAt(0);
 				System.out.printf("Informe o valor da transação: R$");
 				valorOperacao = leia.nextDouble();
-							
 				if (operacao == 'C')
 				{
 					System.out.print("\nTransação realizada com sucesso.");	
@@ -155,17 +139,12 @@ public class banco
 						desenhaLinha(tamanhoLinha);
 					}
 				}
-				
 			}
 			System.out.print("\nDeseja realizar mais transações S/N? ");
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
-		
-		
-		leia.close();
 	}	
-	
 	static void contaEspecial (String conta, double saldo, int limiteOperacoes, int tamanhoLinha)
 	{
 		Scanner leia = new Scanner (System.in);
@@ -173,10 +152,8 @@ public class banco
 		System.out.printf("\nNúmero da conta: %s",conta);
 		System.out.printf("\nSalto Atual: R$%.2f\n",saldo);
 		desenhaLinha(tamanhoLinha);
-		
 		char operacao, opcaoContinuar;
 		double saldoAtual=saldo, valorOperacao;
-		
 		do
 		{
 			for (int i = 1; i <= limiteOperacoes; i++)
@@ -185,7 +162,6 @@ public class banco
 				operacao = leia.next().toUpperCase().charAt(0);
 				System.out.printf("Informe o valor da transação: R$");
 				valorOperacao = leia.nextDouble();
-							
 				if (operacao == 'C')
 				{
 					System.out.print("\nTransação realizada com sucesso.");	
@@ -209,16 +185,12 @@ public class banco
 						desenhaLinha(tamanhoLinha);
 					}
 				}
-				
 			}
 			System.out.print("\nDeseja realizar mais transações S/N? ");
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
-		
-		leia.close();
 	}	
-	
 	static void contaEmpresa (String conta, double saldo, int limiteOperacoes, int tamanhoLinha)
 	{
 		Scanner leia = new Scanner (System.in);
@@ -226,10 +198,8 @@ public class banco
 		System.out.printf("\nNúmero da conta: %s",conta);
 		System.out.printf("\nSalto Atual: R$%.2f\n",saldo);
 		desenhaLinha(tamanhoLinha);
-		
 		char operacao, opcaoContinuar;
 		double saldoAtual=saldo, valorOperacao;
-		
 		do
 		{
 			for (int i = 1; i <= limiteOperacoes; i++)
@@ -238,7 +208,6 @@ public class banco
 				operacao = leia.next().toUpperCase().charAt(0);
 				System.out.printf("Informe o valor da transação: R$");
 				valorOperacao = leia.nextDouble();
-							
 				if (operacao == 'C')
 				{
 					System.out.print("\nTransação realizada com sucesso.");	
@@ -262,16 +231,12 @@ public class banco
 						desenhaLinha(tamanhoLinha);
 					}
 				}
-				
 			}
 			System.out.print("\nDeseja realizar mais transações S/N? ");
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
-		
-		leia.close();
 	}	
-	
 	static void contaUniversitaria (String conta, double saldo, int limiteOperacoes, int tamanhoLinha)
 	{
 		Scanner leia = new Scanner (System.in);
@@ -279,10 +244,8 @@ public class banco
 		System.out.printf("\nNúmero da conta: %s",conta);
 		System.out.printf("\nSalto Atual: R$%.2f\n",saldo);
 		desenhaLinha(tamanhoLinha);
-		
 		char operacao, opcaoContinuar;
 		double saldoAtual=saldo, valorOperacao;
-		
 		do
 		{
 			for (int i = 1; i <= limiteOperacoes; i++)
@@ -291,7 +254,6 @@ public class banco
 				operacao = leia.next().toUpperCase().charAt(0);
 				System.out.printf("Informe o valor da transação: R$");
 				valorOperacao = leia.nextDouble();
-							
 				if (operacao == 'C')
 				{
 					System.out.print("\nTransação realizada com sucesso.");	
@@ -315,17 +277,12 @@ public class banco
 						desenhaLinha(tamanhoLinha);
 					}
 				}
-				
 			}
 			System.out.print("\nDeseja realizar mais transações S/N? ");
 			opcaoContinuar = leia.next().toUpperCase().charAt(0);
 		}
 		while (opcaoContinuar == 'S');
-		
-		
-		leia.close();
 	}	
-		
 	static void desenhaLinha (int linha)
 	{
 		for (int i = 1; i<=linha; i++)
