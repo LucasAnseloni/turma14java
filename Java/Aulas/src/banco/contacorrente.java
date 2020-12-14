@@ -24,48 +24,69 @@ public class contacorrente {
 		int numeroConta[] = new int [40];
 		int tipoConta[] = new int [40];
 		double saldoConta[] = new double [40];
-		int talao[] = new int[3];
-		char operacao, opcaoContinuar,opcao='s';
+	//	int talao[] = new int[3];
+		char operacao, opcaoContinuar,opcao='s',opcaoT='s';
 
-		corrente(opcao);
+	//	corrente(opcao);
 
-	}
+	//}
 
-		public static double  corrente  (int saldo) {
-			Scanner leia = new Scanner(System.in);
-			double movimentacoes ;                        
+	//	public static double  corrente  (int saldo) {
+	//		Scanner leia = new Scanner(System.in);
+			double movimentacoes=0 ;                        
 			String talaoCheque = "T-0" ;
 			char tipoTransicao, aceiteTalaoCheque;
 			int codigoTalao =0;
 			int talao[] = new int[3];
 			int quantidadeTalao=0;
 			int contaTalao=0;
+			double saldo=0;
 
 
-			System.out.println("\nQual transação deseja realizar [C]Credito ou D[Débito]: ");
+		/*	System.out.println("\nQual transação deseja realizar [C]Credito ou D[Débito]: ");
 			tipoTransicao = leia.next().charAt(0);
 			if (tipoTransicao == 'C' || tipoTransicao=='c')
 			{
 				System.out.println("Informe o valor da transação: R$");
 				movimentacoes = leia.nextDouble();
 				saldo+=movimentacoes;
+				System.out.println(saldo);
 			}
 			else if (tipoTransicao =='D' || tipoTransicao =='d')
 			{
 				System.out.println("Informe o valor da transação: R$");
 				movimentacoes =  leia.nextDouble();
 				saldo-=movimentacoes;
-
-			}  if (saldo <= 0)
+				
+			} 
+			if (saldo <= 0)
 			{
 				System.out.println("Você nao possui saldo suficiente!! \n");
-			}else 
-			{
-				
 			}
+		*/	
 		//	do {
 			for (int i =0;i<3;i++)
 			{
+				System.out.println("\nQual transação deseja realizar [C]Credito ou D[Débito]: ");
+				tipoTransicao = leia.next().charAt(0);
+				if (tipoTransicao == 'C' || tipoTransicao=='c')
+				{
+					System.out.println("Informe o valor da transação: R$");
+					movimentacoes = leia.nextDouble();
+					saldo+=movimentacoes;
+					System.out.println(saldo);
+				}
+				else if (tipoTransicao =='D' || tipoTransicao =='d')
+				{
+					System.out.println("Informe o valor da transação: R$");
+					movimentacoes =  leia.nextDouble();
+					saldo-=movimentacoes;
+					
+				} 
+				if (saldo <= 0)
+				{
+					System.out.println("Você nao possui saldo suficiente!! \n");
+				}
 			System.out.printf("\nVocê possui talão de cheque disponivel : %s%d \nDeseja solicitar [S]Sim ou [N]Não:",talao[i],codigoTalao);
 			aceiteTalaoCheque = leia.next().charAt(0);
 			if (aceiteTalaoCheque == 'S' || aceiteTalaoCheque == 's')
@@ -77,20 +98,84 @@ public class contacorrente {
 				{
 					contaTalao += quantidadeTalao;
 					System.out.printf("Seu novo codigo de talao de cheque é T-%s%d:", talao[i],codigoTalao++, "\n");
+					System.out.println("\nvoce deseja fazer uma nova transação [S]Sim ou [N]Não: ?");
+					opcaoT = leia.next().toUpperCase().charAt(0);
+					if (opcaoT == 'S' || opcaoT == 's')
+					{
+						System.out.println("\nQual transação deseja realizar [C]Credito ou D[Débito]: ");
+						tipoTransicao = leia.next().charAt(0);
+						if (tipoTransicao == 'C' || tipoTransicao=='c')
+						{
+							System.out.println("Informe o valor da transação: R$");
+							movimentacoes = leia.nextDouble();
+							saldo+=movimentacoes;
+							System.out.println(saldo);
+						}
+						else if (tipoTransicao =='D' || tipoTransicao =='d')
+						{
+							System.out.println("Informe o valor da transação: R$");
+							movimentacoes =  leia.nextDouble();
+							saldo-=movimentacoes;
+							
+						} 
+						if (saldo <= 0)
+						{
+							System.out.println("Você nao possui saldo suficiente!! \n");
+						}
+					}
+					else 
+					{
+						System.out.println("Fim do programa");
+						//break;
+					}
+				}
+				else if (!(contaTalao <=3 &&  quantidadeTalao + contaTalao  <=3 ))
+				{
+					System.out.println("\nlimite de talao ultrapassado");
+				}	
+				   
+				}
+			else if (aceiteTalaoCheque == 'N' || aceiteTalaoCheque == 'n') 
+			{
+				System.out.println("voce deseja fazer uma nova transação [S]Sim ou [N]Não: ?");
+				opcaoT = leia.next().toUpperCase().charAt(0);
+				if (opcaoT == 'S' || opcaoT == 's')
+				{
+					System.out.println("\nQual transação deseja realizar [C]Credito ou D[Débito]: ");
+					tipoTransicao = leia.next().charAt(0);
+					if (tipoTransicao == 'C' || tipoTransicao=='c')
+					{
+						System.out.println("Informe o valor da transação: R$");
+						movimentacoes = leia.nextDouble();
+						saldo+=movimentacoes;
+						System.out.println(saldo);
+					}
+					else if (tipoTransicao =='D' || tipoTransicao =='d')
+					{
+						System.out.println("Informe o valor da transação: R$");
+						movimentacoes =  leia.nextDouble();
+						saldo-=movimentacoes;
+						
+					} 
+					if (saldo <= 0)
+					{
+						System.out.println("Você nao possui saldo suficiente!! \n");
+					}
 				}
 				else 
 				{
-					System.out.println("\nlimite de talao ultrapassado");
+					System.out.println("Fim do programa");
+					//break;
 				}
-				
-				}
+				break;
+			}
 			
 			
 			
 			
 			}
-			//}while(quantidadeTalao<3);
-			return saldo;
+			
+	
 		}
 
 

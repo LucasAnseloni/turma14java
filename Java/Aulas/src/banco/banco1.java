@@ -25,20 +25,23 @@ public class banco1 {
         int tipoConta[] = new int [40];
         double saldoConta[] = new double [40];
         int talao[] = new int[40];
-        char operacao, opcaoContinuar,opcao='s';
+        char operacao, opcaoContinuar,opcao='1';
         
-        for ( int i=0;i<40;i++)
+  /*      for ( int i=0;i<40;i++)
         {
             System.out.println("digite");
         	saldoConta[i] = leia.nextDouble();
         	
         }
         
-        
+   */     
        double saldoAtual=saldoConta[40], valorOperacao;
+       
+       System.out.println("deseja realizar uma tranção [1] sim [2] nao ");
+       opcao = leia.next().toUpperCase().charAt(0);
 		do
 		{
-			for (int i = 1; i <= 40; i++)
+			for (int i = 0; i < 40; i++)
 			{
 				System.out.printf("\nQual transação deseja realizar [C]Credito ou D[Débito]: ");
 				operacao = leia.next().toUpperCase().charAt(0);
@@ -70,6 +73,6 @@ public class banco1 {
 			}
 		
         
-		}while(opcao == 'S');
+		}while(opcao == '1');
 	}
 }

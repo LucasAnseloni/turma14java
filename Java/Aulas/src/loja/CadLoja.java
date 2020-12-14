@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 public class CadLoja {
 
-	private static final int TAMANHO = 80;
+	
 
 	public static void main(String[] args) {
 
 		Scanner leia = new Scanner(System.in);
+		final int TAMANHO = 80;
 
 		String produtos[] = { "TELEVISAO", "CELULAR", "NOTEBOOK", "FOGAO", "GELADEIRA", "LAVAESECA", "COOKTOP",
 				"MICROONDAS", "FORNO", "FRITADEIRA" };
@@ -16,9 +17,10 @@ public class CadLoja {
 		int estoques[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
 		String codigos[] = { "E-01", "E-02", "E-03", "E-04", "E-05", "E-06", "E-07", "E-08", "E-09", "E-10" };
 		char opcao = 's';
-		String opcaoProduto;
+		String opcaoProduto,nomeCliente="a",nomeClienteAtual="a";
 		int opcaoUnidades = 0;
 		int aux = 0;
+		double totalPagar=0;
 
 		for (int i = 0; i < 10; i++) {
 			estoques[i] = 10;
@@ -40,8 +42,9 @@ public class CadLoja {
 
 			switch (opcaoMenu) {
 			case '1':
+				nomeCliente = nomeClienteAtual;
 				System.out.print("Por favor informe o seu nome: ");
-				String nomeCliente = leia.next().toUpperCase();
+				nomeCliente = leia.next().toUpperCase();
 				System.out.print("Você de define como M-masculino, F-feminino ou O-outro :");
 				char generoCliente = leia.next().toUpperCase().charAt(0);
 				System.out.printf("\nSeja bem-vind%s a EletroLu %s!!!\n\n", voltaGenero(generoCliente), nomeCliente);
@@ -71,6 +74,9 @@ public class CadLoja {
 
 						if (opcaoUnidades <= estoques[i]) {
 							estoques[i] -= opcaoUnidades;
+							totalPagar =  opcaoUnidades * valores[aux];
+							//		System.out.print("PRODUTO\t"+" QUANTIDADE\t"+"VALOR(UN)"+"\tTOTAL\n");
+									System.out.printf("PRODUTO\t QUANTIDADE\tVALOR(UN)\tTOTAL \n %s\t %d\t %.2f\t %.2f", produtos[aux], opcaoUnidades, valores[aux],totalPagar);
 
 						} else {
 							System.out.println("Quantidade não permitida !");
@@ -79,7 +85,9 @@ public class CadLoja {
 					}
 
 				}
-				System.out.printf("%s %d %.2f", produtos[aux], opcaoUnidades, valores[aux]);
+			//	totalPagar =  opcaoUnidades * valores[aux];
+		//		System.out.print("PRODUTO\t"+" QUANTIDADE\t"+"VALOR(UN)"+"\tTOTAL\n");
+			//	System.out.printf("PRODUTO\t QUANTIDADE\tVALOR(UN)\tTOTAL \n %s\t %d\t %.2f\t %.2f", produtos[aux], opcaoUnidades, valores[aux],totalPagar);
 				break;
 
 			case '2':
@@ -93,6 +101,11 @@ public class CadLoja {
 			}
 			System.out.println("\nVoce gostaria de continuar [1] sim , [2] não");
 			opcao = leia.next().charAt(0);
+			if (opcao == '1')
+			{
+				nomeClienteAtual = nomeCliente;
+				nomeCliente = nomeClienteAtual;
+			}
 		} while (opcao == '1');
 
 		leia.close();
