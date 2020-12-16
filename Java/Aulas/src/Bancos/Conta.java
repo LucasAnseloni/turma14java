@@ -8,6 +8,13 @@ public abstract class Conta
 		protected String cpf;//tem
 		
 		
+	//	ContaCorrente C = new ContaCorrente();
+		
+		
+		int qtdTalao =0;
+		int talao =3;
+		
+		
 		//CONSTRUTORES - REGRA DE CRIAÇÃO DA CLASSE
 		//PEDREIRO E PEÃO DE OBRA
 		
@@ -79,5 +86,8 @@ public abstract class Conta
 		public void trocarNumero(int novoNumero) {
 			this.numeroConta = novoNumero;
 		}
+		
+		
+		
 		
 	}
