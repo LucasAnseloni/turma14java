@@ -10,6 +10,8 @@ public class Patinete
 		this.dono = d;
 	}
 	
+	
+	
 	public String mostrarDono() {
 		return "O patinete "+this.cor+" é do  " + this.dono;
 	}

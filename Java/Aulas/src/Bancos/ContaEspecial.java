@@ -1,5 +1,23 @@
 package Bancos;
-public class ContaEspecial extends Conta
+public class ContaEspecial extends ContaCorrente
 {
-	public double valorLimite;
+private double valorLimite;
+
+	
+	//encapsulamento
+	
+	public ContaEspecial(int numeroConta, double valorLimite) {
+		super(numeroConta);
+		this.valorLimite = valorLimite;
+	}
+
+	public double getValorLimite() {
+		return valorLimite;
+	}
+
+	public void setValorLimite(double valorLimite) {
+		this.valorLimite = valorLimite;
+	}
+	
+	
 }
