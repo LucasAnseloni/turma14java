@@ -2,7 +2,7 @@ package Bancos;
 public class ContaPoupanca  extends Conta
 {
 	//atributo
-		private int dataAniversarioConta;
+		public int dataAniversarioConta;
 		
 		
 		//construtor

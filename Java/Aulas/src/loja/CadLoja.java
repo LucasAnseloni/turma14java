@@ -21,6 +21,17 @@ public class CadLoja {
 		int opcaoUnidades = 0;
 		int aux = 0;
 		double totalPagar=0;
+		
+		
+		
+		Pessoa P = new Pessoa("Lucas",'M' ,1992);
+		System.out.println(P.voltaIdade(1992));
+		
+		
+		Produto Produto = new Produto("celular","e-005",20);
+		{
+			Produto.tiraEstoque(20);
+		}
 
 		for (int i = 0; i < 10; i++) {
 			estoques[i] = 10;
