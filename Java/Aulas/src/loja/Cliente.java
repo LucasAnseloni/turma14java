@@ -1,8 +1,9 @@
 package loja;
 
-public class Cliente extends Pessoa
-{
 
+import java.util.Scanner;
+
+public class Cliente extends Pessoa {
 	private String cpf;
 
 	public Cliente(String nome, char genero, int anoNascimento, String cpf) {
@@ -13,16 +14,19 @@ public class Cliente extends Pessoa
 	public String getCpf() {
 		return cpf;
 	}
-
-	public void corrigecpf(String cpf)
-	{
-		this.cpf = cpf;
+	public String novoCpf() {
+		
+		Scanner leia = new Scanner(System.in);	
+		
+		System.out.println("Digite seu cpf novamente: ");
+		this.cpf = leia.nextLine();
+		return this.cpf;
 	}
-
-	
-	
-	
-	
-	
 	
 }
+	
+	
+	
+	
+	
+

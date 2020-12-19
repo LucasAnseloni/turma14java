@@ -1,33 +1,18 @@
 package loja;
 
 public class Produto {
-
-	private String nomeProduto;
 	private String codigo;
+	private String nomeProduto;
 	private double precoUnitario;
 	private int qtdeProdutoEstoque;
+	private int qtdeVendida;
 
-	public Produto(String nomeProduto, String codigo, double precoUnitario) {
-
-		this.nomeProduto = nomeProduto;
+	public Produto(String codigo, String nomeProduto, double precoUnitario, int qtdeProdutoEstoque) {
+		super();
 		this.codigo = codigo;
-		this.precoUnitario = precoUnitario;
-	}
-
-	public Produto(String nomeProduto, String codigo, double precoUnitario, int qtdeProdutoEstoque) {
-
 		this.nomeProduto = nomeProduto;
-		this.codigo = codigo;
 		this.precoUnitario = precoUnitario;
 		this.qtdeProdutoEstoque = qtdeProdutoEstoque;
-	}
-
-	public String getNomeProduto() {
-		return nomeProduto;
-	}
-
-	public void setNomeProduto(String nomeProduto) {
-		this.nomeProduto = nomeProduto;
 	}
 
 	public String getCodigo() {
@@ -38,6 +23,14 @@ public class Produto {
 		this.codigo = codigo;
 	}
 
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
+	}
+
 	public double getPrecoUnitario() {
 		return precoUnitario;
 	}
@@ -46,62 +39,52 @@ public class Produto {
 		this.precoUnitario = precoUnitario;
 	}
 
-	public int getQtdeProdutoEstoqu() {
+	public int getQtdeProdutoEstoque() {
 		return qtdeProdutoEstoque;
 	}
 
-	// metodos
-	public void tiraEstoque(int saida)
-	{
-		if(testarEstoque(saida))
-		{
-			this.qtdeProdutoEstoque -= saida;
-		}
-		
-	
-	else
-	{
-		System.out.println("estoque indispomivel!!");
+	public int getQtdeVendida() {
+		return qtdeVendida;
 	}
 
-	public void adicionaEstoque(int entrada)
-	{
-		this.qtdeProdutoEstoque += entrada;
+	public void setQtdeVendida(int qtdeVendida) {
+		this.qtdeVendida = qtdeVendida;
 	}
 
-	public boolean testarEstoque(int valor)
-	{
-		if (valor > this.qtdeProdutoEstoque) 
-		{
+	public boolean venda(int qtdeVendida) {
+		if (qtdeVendida > this.qtdeProdutoEstoque || qtdeVendida <= 0) {
 			return false;
-		}
-		else if (valor ==0)
-		{
-			return false;
-		}
-		else if (this.qtdeProdutoEstoque ==0)
-		{
-			return false;
-		}
-		else if (this.qtdeProdutoEstoque <0)
-		{
-			return false;
-		}
-		else
-		{
+		} else {
 			return true;
 		}
+
 	}
-		
-		public double venda(int qtdeVendida)
-		{
-			tiraEstoque(qtdeVendida);
-			return qtdeVendida 
-		}
 
-	
+	public void tiraEstoque(int qtdeVendida) {
+		this.qtdeProdutoEstoque = this.qtdeProdutoEstoque - qtdeVendida;
+	}
 
+	public void adicionarEstoque(int entrada) {
+		this.qtdeProdutoEstoque = this.qtdeProdutoEstoque + entrada;
+	}
 
-	
-}
+	public double carrinho(int qtdeVendida) {
+		return (qtdeVendida * this.precoUnitario);
+	}
+	public double avista(double valorTotal)
+	{
+		return (valorTotal * .9);
+	}
+	public double debito(double valorTotal)
+	{
+		return (valorTotal);
+	}
+	public double credito(double valorTotal)
+	{
+		return (valorTotal * 1.05);
+	}
+	public double parcelado(double valorTotal)
+	{
+		return (valorTotal * 1.1);
+	}
 }

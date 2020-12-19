@@ -3,14 +3,14 @@ package desafios;
 
 		import java.util.Scanner;
 
-import Bancos.ContaCorrente;
-import Bancos.ContaPoupanca;
+import BancosClasse.ContaCorrente;
+import BancosClasse.Poupanca;
 
 
-		public class BancoTeste {
-			public static void main(String[] args)
-			{
-				Scanner sc = new Scanner(System.in);
+	//	public class BancoTeste //{
+		//	public static void main(String[] args)
+			//{
+		/*		Scanner sc = new Scanner(System.in);
 				final int MAX_MOVIMENTOS = 3;
 				int data, quantidadeTalao, numeroConta = 0;
 				double valor;
@@ -37,7 +37,7 @@ import Bancos.ContaPoupanca;
 						case '1':
 							System.out.println("Digite a data de aniversario da conta: ");
 							int dataAniversarioConta = sc.nextInt();
-							ContaPoupanca cp = new ContaPoupanca(numeroConta, cpfConta, dataAniversarioConta);
+						Poupanca cp = new Poupanca(numeroConta, cpfConta, dataAniversarioConta);
 							System.out.println("Digite a data de hoje: ");
 							data = sc.nextInt();
 							System.out.println("\nConta Poupança");
@@ -115,4 +115,4 @@ import Bancos.ContaPoupanca;
 					}
 				} while (true);
 			}
-		}
+		}*/
