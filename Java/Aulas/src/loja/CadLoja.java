@@ -10,7 +10,7 @@ public class CadLoja {
 		final int tamanho = 80;
 		double valorTotal = 0;
 		char opcao, continua, continuaCompra;
-		int anoNascimento, qtdeVendida, produtoCompra, entrada, anoAtual = 2020;
+		int anoNascimento, qtdeVendida, produtoCompra, entrada, anoAtual = 2020,contaOpcao=0;
 		String nome, cpf, compararProduto;
 		char genero;
 
@@ -34,22 +34,22 @@ public class CadLoja {
 		linha(tamanho);
 		System.out.println("\n\t\t\t\t   EletroLu");
 		linha(tamanho);
-		System.out.println("\nDigite seu nome: ");
+		System.out.print("\nDigite seu nome: ");
 		nome = leia.nextLine();
-		System.out.println("\nDigite seu gênero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
+		System.out.print("\nDigite seu gênero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
 		genero = leia.next().toUpperCase().charAt(0);
 		while (genero != 'M' && genero != 'F' && genero != 'O') {
-			System.out.println("Valor incorreto. Digite seu gênero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
+			System.out.print("Opção incorreta.\n\nDigite seu gênero [M] Masculino,[F] Feminino ou [O] Não-Binário: ");
 			genero = leia.next().toUpperCase().charAt(0);
 		}
-		System.out.println("Digite seu ano de nascimento: ");
+		System.out.print("\nDigite seu ano de nascimento: ");
 		anoNascimento = leia.nextInt();
 		while (anoNascimento < 1850 || anoNascimento > anoAtual) {
-			System.out.println("Ano incorreto. Digite novamente seu ano de nascimento: ");
+			System.out.println("Ano incorreto.\n\nDigite novamente seu ano de nascimento: ");
 			anoNascimento = leia.nextInt();
 		}
 		leia.nextLine();
-		System.out.println("Digite o seu cpf: ");
+		System.out.print("\nDigite o seu cpf: ");
 		cpf = leia.nextLine();
 
 		Cliente cliente1 = new Cliente(nome, genero, anoNascimento, cpf);
@@ -69,10 +69,10 @@ public class CadLoja {
 			System.out.println("\n[1] - Comprar produtos");
 			System.out.println("[2] - Gerenciar estoques");
 			System.out.println("[3] - Sair");
-			System.out.println("\nDigite a opção: ");
+			System.out.print("\nDigite a opção: ");
 			opcao = leia.next().charAt(0);
 			while (opcao != '1' && opcao != '2' && opcao != '3') {
-				System.out.println("Opção incorreto. Digite a opção: ");
+				System.out.println("Opção incorreta.\n\nDigite a opção: ");
 				opcao = leia.next().charAt(0);
 			}
 			if (opcao == '1') {
@@ -85,8 +85,12 @@ public class CadLoja {
 						System.out.printf("\n%s\t\t%.2f\t\t%d\t\t%s", i.getCodigo(), i.getPrecoUnitario(),
 								i.getQtdeProdutoEstoque(), i.getNomeProduto());
 					}
-					System.out.println("\n\nDigite o código do produto de [0 à 10] que será comprado: ");
+					System.out.print("\n\nDigite o código do produto de [1 à 10] que será comprado: ");
 					produtoCompra = leia.nextInt();
+					while (produtoCompra <= 0 || produtoCompra >10) {
+						System.out.println("Código incorreto.\n\nDigite o código do produto de [1 à 10] que será comprado: ");
+						produtoCompra = leia.nextInt();
+					}
 					if (produtoCompra < 10) {
 						compararProduto = "E-00" + (produtoCompra);
 					} else {
@@ -113,11 +117,13 @@ public class CadLoja {
 					}
 					System.out.print("\nVocê deseja comprar mais algum produto (S ou N)? ");
 					continuaCompra = leia.next().toUpperCase().charAt(0);
+					
 					while (continuaCompra != 'S' && continuaCompra != 'N') {
 						System.out.print("\nOpção incorreta. Você deseja comprar mais algum produto (S ou N)? ");
 						continuaCompra = leia.next().toUpperCase().charAt(0);
 					}
 				} while (continuaCompra == 'S');
+				
 				
 				
 				Produto P = new Produto("",""  , 1000.00,10);
@@ -136,7 +142,7 @@ public class CadLoja {
 					linha(tamanho);
 					for (Produto i : carrinho) {
 						System.out.printf("\n%s\t  %s\t\t   %d\t\t %.2f %.2f\n", i.getCodigo(), i.getNomeProduto(),
-								i.getQtdeVendida(), P.avista(valorTotal)/i.getQtdeVendida(), (P.avista(valorTotal)/i.getQtdeVendida()) * i.getQtdeVendida() );
+								i.getQtdeVendida(), P.getPrecoUnitario()*.9, P.getPrecoUnitario()*i.getQtdeVendida()*.9 );
 					}
 					linha(tamanho);
 					System.out.printf("\n\t\t\t\t\t    VL. TOTAL R$ %.2f\n",P.avista(valorTotal));
@@ -151,7 +157,7 @@ public class CadLoja {
 					linha(tamanho);
 					for (Produto i : carrinho) {
 						System.out.printf("\n%s\t  %s\t   %d\t\t %.2f\t\t %.2f\n", i.getCodigo(), i.getNomeProduto(),
-								i.getQtdeVendida(), P.debito(valorTotal)/i.getQtdeVendida(),( P.debito(valorTotal)/i.getQtdeVendida()) * i.getQtdeVendida() );
+								i.getQtdeVendida(), P.getPrecoUnitario(), P.getPrecoUnitario()*i.getQtdeVendida());
 					}
 					linha(tamanho);
 					System.out.printf("\n\t\t\t\t\t    VL. TOTAL R$ %.2f\n",P.debito(valorTotal));
@@ -166,7 +172,7 @@ public class CadLoja {
 					linha(tamanho);
 					for (Produto i : carrinho) {
 						System.out.printf("\n%s\t  %s\t   %d\t\t %.2f\t\t %.2f\n", i.getCodigo(), i.getNomeProduto(),
-								i.getQtdeVendida(), P.credito(valorTotal)/i.getQtdeVendida(),( P.credito(valorTotal)/i.getQtdeVendida()) * i.getQtdeVendida());
+								i.getQtdeVendida(), P.getPrecoUnitario()*1.05,P.getPrecoUnitario()*i.getQtdeVendida()*1.05);
 					}
 					linha(tamanho);
 					System.out.printf("\n\t\t\t\t\t    VL. TOTAL R$ %.2f\n",P.credito(valorTotal));
@@ -187,7 +193,7 @@ public class CadLoja {
 						linha(tamanho);
 						for (Produto i : carrinho) {
 							System.out.printf("\n%s\t  %s\t   %d\t\t %.2f\t\t %.2f\n", i.getCodigo(), i.getNomeProduto(),
-									i.getQtdeVendida(), P.parcelado(valorTotal)/i.getQtdeVendida(),( P.parcelado(valorTotal)/i.getQtdeVendida()) * i.getQtdeVendida());
+									i.getQtdeVendida(), P.getPrecoUnitario()*1.1,i.getQtdeVendida()* P.getPrecoUnitario()*1.1);
 						}
 						linha(tamanho);
 						System.out.printf("\n\t\t\t\t\t    VL. TOTAL R$ %.2f\n",P.parcelado(valorTotal));
@@ -202,10 +208,12 @@ public class CadLoja {
 						linha(tamanho);
 						for (Produto i : carrinho) {
 							System.out.printf("\n%s\t  %s\t   %d\t\t %.2f\t\t %.2f\n", i.getCodigo(), i.getNomeProduto(),
-									i.getQtdeVendida(), P.parcelado(valorTotal)/i.getQtdeVendida(),( P.parcelado(valorTotal)/i.getQtdeVendida()) * i.getQtdeVendida());
+									i.getQtdeVendida(), P.getPrecoUnitario()*1.1,i.getQtdeVendida()* P.getPrecoUnitario()*1.1);
 						}
 						linha(tamanho);
 						System.out.printf("\n\t\t\t\t\t    VL. TOTAL R$ %.2f\n",P.parcelado(valorTotal));
+						linha(tamanho);
+						System.out.printf("\n\t\t\tParcelado em 2x de R$ %.2f\n",P.parcelado(valorTotal)/2);
 						linha(tamanho);
 					}
 					else if (opcao == '3')
@@ -217,10 +225,12 @@ public class CadLoja {
 						linha(tamanho);
 						for (Produto i : carrinho) {
 							System.out.printf("\n%s\t  %s\t   %d\t\t %.2f\t\t %.2f\n", i.getCodigo(), i.getNomeProduto(),
-									i.getQtdeVendida(), P.parcelado(valorTotal)/i.getQtdeVendida(),( P.parcelado(valorTotal)/i.getQtdeVendida()) * i.getQtdeVendida());
+									i.getQtdeVendida(), P.getPrecoUnitario()*1.1,i.getQtdeVendida()* P.getPrecoUnitario()*1.1);
 						}
 						linha(tamanho);
 						System.out.printf("\n\t\t\t\t\t    VL. TOTAL R$ %.2f\n",P.parcelado(valorTotal));
+						linha(tamanho);
+						System.out.printf("\n\t\t\tParcelado em 3x de R$ %.2f\n",P.parcelado(valorTotal)/3);
 						linha(tamanho);
 					}
 				}
@@ -285,7 +295,7 @@ public class CadLoja {
 					continua = leia.next().toUpperCase().charAt(0);
 				}
 			} else {
-				System.out.printf("Obrigado! Volte sempre.");
+				System.out.printf("\nObrigado! Volte sempre.");
 				continua = 'N';
 			}
 		} while (continua == 'S');
