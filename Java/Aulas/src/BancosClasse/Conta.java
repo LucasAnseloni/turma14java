@@ -12,6 +12,7 @@ public abstract class Conta
 	protected double saldoConta;
 	protected String cpf;
 	protected boolean ativa;
+	protected int tipoConta;
 	
 	//Getters and Setters:
 	public String getNome() 
@@ -49,6 +50,12 @@ public abstract class Conta
 		this.cpf = cpf;
 	}
 	
+	
+	
+	public int getTipoConta() {
+		return tipoConta;
+	}
+
 	//Construtores:
 	public Conta() 
 	{
@@ -68,6 +75,15 @@ public abstract class Conta
 		this.cpf = cpf;
 	}
 	
+	
+	
+	public Conta(int numeroConta,String nome, String cpf) {
+		super();
+		this.nome = nome;
+		this.numeroConta = numeroConta;
+		this.cpf = cpf;
+	}
+
 	//Métodos:
 	public void FazerCredito (double valorTransacao)
 	{	

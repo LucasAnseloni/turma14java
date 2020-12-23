@@ -15,7 +15,23 @@ public class ContaEmpresa extends Conta
 		super(numeroConta, cpf);
 		this.emprestimoEmpresa = emprestimoEmpresa;
 	}
+	
+	
 		
+	
+
+
+	public ContaEmpresa(String nome, int numeroConta, String cpf, double emprestimoEmpresa) {
+		super(numeroConta,nome , cpf);
+		this.emprestimoEmpresa = emprestimoEmpresa;
+		super.tipoConta = 4;
+	}
+
+
+
+
+
+
 	//Getters and Setters
 	public double getEmprestimoEmpresa() 
 	{

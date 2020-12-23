@@ -10,7 +10,21 @@ public class ContaCorrente extends Conta
     public ContaCorrente(int numeroConta, String cpf) {
         super(numeroConta, cpf);
     }
-    public int getQtdTalao() {
+    
+    
+    
+    
+    
+    public ContaCorrente(int numeroConta,String nome , String cpf) {
+		super(numeroConta,nome , cpf);
+		super.tipoConta =2;
+	}
+
+
+
+
+
+	public int getQtdTalao() {
         return qtdTalao;
     }
     public void setQtdTalao(int qtdTalao) {
@@ -22,8 +36,9 @@ public class ContaCorrente extends Conta
     public int getTotalTalao() {
         return totalTalao;
     }
-    public void talao(int talao, int qtdTalao) {
+    public int talao(int qtdTalao) {
         char opcao;
+        int comparaTalao;
         
             Scanner leia = new Scanner(System.in);
             System.out.print("\nVocê deseja imprimir talão S/N: ");
@@ -33,26 +48,30 @@ public class ContaCorrente extends Conta
                // opcao = leia.next().toUpperCase().charAt(0);
            // }
             if (opcao == 'S') {
+            	if (qtdTalao == talao)
+            	{
+            		System.out.println("Você atingiu o limite de talões do dia!");
+            	}
+            	else
+            	{
                 System.out.println("Digite a quantidade que deseja: (Até 3 talões por dia)");
-                qtdTalao = leia.nextInt();
-                while (qtdTalao < 0 || qtdTalao > 3) {
-                    System.out.printf("\nQuantidade inválida. Você pode resgatar até %d talões\nDigite a quantidade:", talao);
-                    qtdTalao = leia.nextInt();
+                comparaTalao = leia.nextInt();
+                while (comparaTalao < 0 || comparaTalao > talao - qtdTalao ) {
+                    System.out.printf("\nQuantidade inválida. Você pode resgatar até %d talões\nDigite a quantidade:", talao-qtdTalao);
+                    comparaTalao = leia.nextInt();
                 }
-                while (qtdTalao > talao) {
-                    System.out.printf("Erro! Quantidade disponível: %d. Digite a quantidade:", talao);
-                    qtdTalao = leia.nextInt();
-                }
-                talao = talao - qtdTalao;
-                totalTalao = totalTalao + qtdTalao;
-                if (talao == 0) {
-                    talao = 3;
-                }
-                System.out.printf("Quantidade diária impressa: %d\n", qtdTalao);
+                
+                totalTalao = totalTalao + comparaTalao;
+                qtdTalao += comparaTalao;
+                
+                System.out.printf("Quantidade solicitada impressa: %d\n", comparaTalao);
                 System.out.printf("Quantidade total impressa: %d\n", totalTalao);
                // System.out.println("Deseja continuar? \n[S]-Sim \n[N]-Não");
               //  opcao = leia.next().toUpperCase().charAt(0);
+            	}
+                
             }
+			return qtdTalao;
       
     }
 }

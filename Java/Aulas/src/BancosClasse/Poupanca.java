@@ -9,8 +9,17 @@ public class Poupanca extends Conta
         super(numeroConta, nome);
         this.dataAniversario = dataAniversario;
     }
+    
+    
 
-    public int getDataAniversario() 
+    public Poupanca(int numeroConta,String nome,  String cpf, int dataAniversario) {
+		super(numeroConta,nome, cpf);
+		this.dataAniversario = dataAniversario;
+	}
+
+
+
+	public int getDataAniversario() 
     {
         return dataAniversario;
     }
