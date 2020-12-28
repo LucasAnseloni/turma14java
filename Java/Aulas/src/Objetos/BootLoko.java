@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class BootLoko {
 	public static void main(String[] args)
 	{
-		// TODO Auto-generated method stub
+		///// TODO Auto-generated method stub
 		//nome
 		//genero
 		//ano de nascimento
