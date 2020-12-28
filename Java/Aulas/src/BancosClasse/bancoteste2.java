@@ -8,7 +8,7 @@ public class bancoteste2
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
 		
-		char opcao, saida, tipoTransacao, opconta,aceiteEmprestimo;
+		char opcao, saida, tipoTransacao, aceiteEmprestimo,opconta;
 		int numeroConta = 0, numOperacoes = 10, i = 0;
 		Conta conta_pessoa1 = null;
 		double valorTransacao = 0,valorEmprestimo=0.0;
@@ -41,8 +41,8 @@ public class bancoteste2
 					System.out.println("[4] - Conta Empresa");
 					System.out.println("[5] - Conta Universitaria");
 					System.out.print("Digite o numero de sua opção: ");
-					opconta = leia.next().charAt(0);
-					if (opconta >0 && opconta<6)
+					opconta = leia.next().toUpperCase().charAt(0);
+					if (opconta >48 && opconta<54)
 					{
 					System.out.println();
 					numeroConta++;
