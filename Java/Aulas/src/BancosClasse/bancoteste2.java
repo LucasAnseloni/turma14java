@@ -98,7 +98,7 @@ public class bancoteste2
 					if(numConta == conta_pessoa1.getNumeroConta()) {
 						if(conta_pessoa1.getTipoConta() == 1)
 						{
-						//	System.out.println("Seu saldo atual é "+conta_pessoa1.getSaldoConta()+" reais");
+							System.out.println("Seu saldo atual é "+conta_pessoa1.getSaldoConta()+" reais");
 							do{
 								System.out.println("Qual operacao deseja realizar? Credito ou Debito ou consultar saldo[C/D/S]");
 								tipoTransacao = leia.next().toUpperCase().charAt(0);

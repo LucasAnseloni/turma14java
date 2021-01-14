@@ -3,11 +3,15 @@ package BancosClasse;
 public class Poupanca extends Conta
 {
 	private int dataAniversario;
+	
+	
+	
 
     public Poupanca(int numeroConta, String nome, int dataAniversario) 
     {
         super(numeroConta, nome);
         this.dataAniversario = dataAniversario;
+       
     }
     
     
@@ -15,6 +19,7 @@ public class Poupanca extends Conta
     public Poupanca(int numeroConta,String nome,  String cpf, int dataAniversario) {
 		super(numeroConta,nome, cpf);
 		this.dataAniversario = dataAniversario;
+		super.tipoConta = 1;
 	}
 
 
