@@ -30,6 +30,18 @@ public class Categoria {
 	
 	
 	
+	public List<Produto> getProduto() {
+		return produto;
+	}
+
+
+
+	public void setProduto(List<Produto> produto) {
+		this.produto = produto;
+	}
+
+
+
 	@NotNull
 	@Size(min = 2,max = 100)
 	private String fabricante;
